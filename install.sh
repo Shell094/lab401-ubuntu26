@@ -21,9 +21,9 @@ die()  { echo -e "${RED}[✘]${NC}  $*"; exit 1; }
 [[ $EUID -eq 0 ]] || die "กรุณารันด้วย sudo"
 
 # ============================================================
-# ★ แก้ URL ตรงนี้ให้ตรงกับ GitLab repo ของคุณ
+# ★ แก้ URL ตรงนี้ให้ตรงกับ GitHub repo
 # ============================================================
-GITLAB_RAW="https://gitlab.com/YOUR_GROUP/YOUR_REPO/-/raw/main"
+GITHUB_RAW="https://raw.githubusercontent.com/Shell094/lab401-ubuntu26/main"
 # ============================================================
 
 INSTALL_DIR="/usr/local/bin"
@@ -43,19 +43,19 @@ done
 
 # ── ดาวน์โหลด network.sh ──────────────────────────────────
 info "ดาวน์โหลด network.sh จาก GitHub..."
-curl -fsSL "${GITLAB_RAW}/network.sh" -o "${INSTALL_DIR}/lab401-network.sh"
+curl -fsSL "${GITHUB_RAW}/network.sh" -o "${INSTALL_DIR}/lab401-network.sh"
 chmod +x "${INSTALL_DIR}/lab401-network.sh"
 ok "บันทึกที่ ${INSTALL_DIR}/lab401-network.sh"
 
 # ── ดาวน์โหลด ubuntu-setup.sh ────────────────────────────
 info "ดาวน์โหลด ubuntu-setup.sh จาก GitHub..."
-curl -fsSL "${GITLAB_RAW}/ubuntu-setup.sh" -o "${INSTALL_DIR}/lab401-ubuntu-setup.sh"
+curl -fsSL "${GITHUB_RAW}/ubuntu-setup.sh" -o "${INSTALL_DIR}/lab401-ubuntu-setup.sh"
 chmod +x "${INSTALL_DIR}/lab401-ubuntu-setup.sh"
 ok "บันทึกที่ ${INSTALL_DIR}/lab401-ubuntu-setup.sh"
 
 # ── ติดตั้ง systemd service (auto-run network.sh ตอน boot) ──
 info "ติดตั้ง systemd service..."
-curl -fsSL "${GITLAB_RAW}/lab401-network.service" -o "${SERVICE_DIR}/lab401-network.service"
+curl -fsSL "${GITHUB_RAW}/lab401-network.service" -o "${SERVICE_DIR}/lab401-network.service"
 
 systemctl daemon-reload
 systemctl enable lab401-network.service
