@@ -1,0 +1,15 @@
+[Unit]
+Description=Lab401 Static IP Setup (network.sh)
+After=network-pre.target NetworkManager.service
+Before=network.target
+Wants=NetworkManager.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/lab401-network.sh
+RemainAfterExit=yes
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
