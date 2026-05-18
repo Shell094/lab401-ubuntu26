@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================
 #  Lab401 — Master Installer
-#  ดาวน์โหลดและติดตั้งสคริปต์ทั้งหมดจาก GitLab
+#  ดาวน์โหลดและติดตั้งสคริปต์ทั้งหมดจาก GitHub
 #  Ubuntu 26.04
 #
 #  วิธีใช้งาน (one-liner):
@@ -42,13 +42,13 @@ for cmd in curl systemctl nmcli; do
 done
 
 # ── ดาวน์โหลด network.sh ──────────────────────────────────
-info "ดาวน์โหลด network.sh จาก GitLab..."
+info "ดาวน์โหลด network.sh จาก GitHub..."
 curl -fsSL "${GITLAB_RAW}/network.sh" -o "${INSTALL_DIR}/lab401-network.sh"
 chmod +x "${INSTALL_DIR}/lab401-network.sh"
 ok "บันทึกที่ ${INSTALL_DIR}/lab401-network.sh"
 
 # ── ดาวน์โหลด ubuntu-setup.sh ────────────────────────────
-info "ดาวน์โหลด ubuntu-setup.sh จาก GitLab..."
+info "ดาวน์โหลด ubuntu-setup.sh จาก GitHub..."
 curl -fsSL "${GITLAB_RAW}/ubuntu-setup.sh" -o "${INSTALL_DIR}/lab401-ubuntu-setup.sh"
 chmod +x "${INSTALL_DIR}/lab401-ubuntu-setup.sh"
 ok "บันทึกที่ ${INSTALL_DIR}/lab401-ubuntu-setup.sh"
